@@ -1,37 +1,64 @@
-/* RULE 1: Each screen displays the poster artwork. */
+/* RULE 1: Only the selected screen is visible. */
+
 * {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+html, body {
   margin: 0;
-  background-color: black;
+  width: 100%;
+  min-height: 100%;
+  background: black;
 }
 
-/* RULE 2: Images resize with the browser. */
+/* Hide all screens by default */
 .screen {
+  display: none;
   position: relative;
   width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Show the first screen when the page opens */
+#screen1 {
+  display: flex;
+}
+
+/* Show screen 2 when clicked */
+body:has(#screen2:target) #screen1 {
+  display: none;
+}
+
+#screen2:target {
+  display: flex;
+}
+
+/* Show screen 3 when clicked */
+body:has(#screen3:target) #screen1 {
+  display: none;
+}
+
+#screen3:target {
+  display: flex;
+}
+
+/* RULE 2: Images scale to fit the screen. */
 .screen img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* RULE 3: Clickable areas sit over the artwork. */
+/* RULE 3: Clickable areas overlay the artwork. */
 .click-area {
   position: absolute;
   display: block;
   cursor: pointer;
 }
 
-/* Click WAKE UP PARTY GIRL */
+/* WAKE UP PARTY GIRL */
 .wake-up {
   left: 20%;
   top: 73%;
@@ -39,7 +66,7 @@ body {
   height: 16%;
 }
 
-/* Click GET UR TICKETS */
+/* GET UR TICKETS */
 .tickets {
   left: 30%;
   top: 57%;
