@@ -1,64 +1,36 @@
-/* RULE 1: Only the selected screen is visible. */
-
 * {
   box-sizing: border-box;
 }
 
 html, body {
   margin: 0;
-  width: 100%;
-  min-height: 100%;
+  padding: 0;
   background: black;
 }
 
-/* Hide all screens by default */
+/* Each page contains one poster image */
 .screen {
-  display: none;
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-/* Show the first screen when the page opens */
-#screen1 {
-  display: flex;
-}
-
-/* Show screen 2 when clicked */
-body:has(#screen2:target) #screen1 {
-  display: none;
-}
-
-#screen2:target {
-  display: flex;
-}
-
-/* Show screen 3 when clicked */
-body:has(#screen3:target) #screen1 {
-  display: none;
-}
-
-#screen3:target {
-  display: flex;
-}
-
-/* RULE 2: Images scale to fit the screen. */
+/* Poster scales with browser width */
 .screen img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* RULE 3: Clickable areas overlay the artwork. */
+/* Invisible clickable areas */
 .click-area {
   position: absolute;
   display: block;
   cursor: pointer;
 }
 
-/* WAKE UP PARTY GIRL */
+/* Page 1: WAKE UP PARTY GIRL */
 .wake-up {
   left: 20%;
   top: 73%;
@@ -66,7 +38,7 @@ body:has(#screen3:target) #screen1 {
   height: 16%;
 }
 
-/* GET UR TICKETS */
+/* Page 2: GET UR TICKETS */
 .tickets {
   left: 30%;
   top: 57%;
@@ -74,6 +46,9 @@ body:has(#screen3:target) #screen1 {
   height: 17%;
 }
 
+.click-area:focus-visible {
+  outline: 3px solid #ff00cc;
+}
 .click-area:focus-visible {
   outline: 3px solid hotpink;
 }
