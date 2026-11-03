@@ -1,0 +1,52 @@
+/* RULE 1: Each screen displays the poster artwork. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+}
+
+/* RULE 2: Images resize with the browser. */
+.screen {
+  position: relative;
+  width: 100%;
+}
+
+.screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* RULE 3: Clickable areas sit over the artwork. */
+.click-area {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+}
+
+/* Click WAKE UP PARTY GIRL */
+.wake-up {
+  left: 20%;
+  top: 73%;
+  width: 65%;
+  height: 16%;
+}
+
+/* Click GET UR TICKETS */
+.tickets {
+  left: 30%;
+  top: 57%;
+  width: 42%;
+  height: 17%;
+}
+
+.click-area:focus-visible {
+  outline: 3px solid hotpink;
+}
